@@ -6,7 +6,7 @@
             <h4>Agregar categoria</h4>
         </div>
         <div class="card-body">
-            <form action="{{url('insert-category')}}" method="POST">
+            <form action="{{url('insert-category')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -14,8 +14,8 @@
                         <input type="text" class="form-control" name="name">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="">Slug</label>
-                        <input type="text" class="form-control" name="slug">
+                        <label for="">Category</label>
+                        <input type="text" class="form-control" name="category">
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
@@ -23,11 +23,11 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Status</label>
-                        <input type="checkbox" class="form-control" name="status">
+                        <input type="checkbox" name="status">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Popular</label>
-                        <input type="checkbox" class="form-control" name="popular">
+                        <input type="checkbox" name="popular">
                     </div>   
                     <div class="col-md-12 mb-3">
                         <label for="">Meta Title</label>

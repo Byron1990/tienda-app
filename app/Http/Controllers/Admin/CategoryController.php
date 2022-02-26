@@ -10,7 +10,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('admin.category.index');
+        $categories = Category::all();
+        return view('admin.category.index', compact('categories'));
     }
 
     public function add()
@@ -20,18 +21,16 @@ class CategoryController extends Controller
 
     public function insert(Request $request)
     {
-        //TODO: No se puede cargar la imagen en el repositorio local.
         $category = new Category();
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $ext;
-            $file->move('assets/uploads/category', $filename);
-            $category->image = $filename;
+            $image = request()->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('admin/assets/uploads/category', $imageName);
+            $category->image = $imageName;
         }
 
         $category->name = $request->input('name');
-        $category->slug = $request->input('slug');
+        $category->category = $request->input('category');
         $category->description = $request->input('description');
         $category->status = $request->input('status') == TRUE ? '1' : '0';
         $category->popular = $request->input('popular') == TRUE ? '1' : '0';

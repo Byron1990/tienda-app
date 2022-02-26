@@ -12,7 +12,7 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillname = [
         'name',
-        'slug',
+        'category',
         'description',
         'status',
         'popular',
