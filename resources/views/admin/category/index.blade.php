@@ -23,10 +23,10 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->description }}</td>
                         <td>
-                            <img src="{{asset('admin/assets/uploads/category/'.$item->image)}}" class="cate-image" alt="Imagen aquí">
+                            <img src="{{asset('assets/uploads/category/'.$item->image)}}" class="cate-image" alt="Imagen aquí">
                         </td>
                         <td>
-                            <button class="btn btn-primary">Editar</button>
+                            <a class="btn btn-primary" href="{{url('edit-product/'.$item->id)}}">Editar</a>
                             <button class="btn btn-danger">Borrar</button>
                         </td>
                     </tr>

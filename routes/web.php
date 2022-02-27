@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\CategoryController;
+use Symfony\Component\HttpKernel\Controller\ControllerReference;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,7 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('categories', 'Admin\CategoryController@index');
     Route::get('add-category', 'Admin\CategoryController@add');
     Route::post('insert-category', 'Admin\CategoryController@insert');
+    /* Editar un producto */
+    Route::get('edit-product/{id}', [CategoryController::class, 'edit']);
+    Route::put('update-product/{id}', [CategoryController::class, 'update']);
 });

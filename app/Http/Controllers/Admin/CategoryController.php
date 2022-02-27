@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\Category;
+
+
 
 class CategoryController extends Controller
 {
@@ -25,7 +28,7 @@ class CategoryController extends Controller
         if ($request->hasFile('image')) {
             $image = request()->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move('admin/assets/uploads/category', $imageName);
+            $image->move('assets/uploads/category', $imageName);
             $category->image = $imageName;
         }
 
@@ -39,5 +42,36 @@ class CategoryController extends Controller
         $category->meta_description = $request->input('meta_description');
         $category->save();
         return redirect('/dashboard')->with('status', "Categoria agregada correctamente");
+    }
+
+    public function edit($id)
+    {
+        $category = Category::find($id);
+        return view('admin.category.edit', compact('category'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $category = Category::find($id);
+        if ($request->hasFile('image')) {
+            $path = 'assets/uploads/category/' . $category->image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $image = request()->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('assets/uploads/category', $imageName);
+            $category->image = $imageName;
+        }
+        $category->name = $request->input('name');
+        $category->category = $request->input('category');
+        $category->description = $request->input('description');
+        $category->status = $request->input('status') == TRUE ? '1' : '0';
+        $category->popular = $request->input('popular') == TRUE ? '1' : '0';
+        $category->meta_title = $request->input('meta_title');
+        $category->meta_keywords = $request->input('meta_keywords');
+        $category->meta_description = $request->input('meta_description');
+        $category->update();
+        return redirect('dashboard')->with('status', "Categoria actualizada correctamente");
     }
 }
