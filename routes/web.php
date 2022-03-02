@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
-use Symfony\Component\HttpKernel\Controller\ControllerReference;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
-    Route::get('/dashboard', 'Admin\FrontendController@index');
+    Route::get('dashboard', 'Admin\FrontendController@index');
 
     Route::get('categories', 'Admin\CategoryController@index');
     Route::get('add-category', 'Admin\CategoryController@add');
@@ -33,4 +33,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     /* Editar un producto */
     Route::get('edit-product/{id}', [CategoryController::class, 'edit']);
     Route::put('update-product/{id}', [CategoryController::class, 'update']);
+    Route::get('delete-product/{id}', [CategoryController::class, 'destroy']);
+
+    Route::get('products',[ProductController::class, 'index']);
+    Route::get('add-product',[ProductController::class, 'add']);
 });

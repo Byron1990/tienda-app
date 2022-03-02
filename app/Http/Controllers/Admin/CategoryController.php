@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Category;
 
-
-
 class CategoryController extends Controller
 {
     public function index()
@@ -73,5 +71,16 @@ class CategoryController extends Controller
         $category->meta_description = $request->input('meta_description');
         $category->update();
         return redirect('dashboard')->with('status', "Categoria actualizada correctamente");
+    }
+
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        $path = 'assets/uploads/category/' . $category->image;
+        if (File::exists($path)) {
+            File::delete($path);
+        }
+        $category->delete();
+        return redirect('categories')->with('status', "Producto eliminado correctamente");
     }
 }

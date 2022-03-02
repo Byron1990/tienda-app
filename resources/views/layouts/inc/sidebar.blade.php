@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="../pages/dashboard.html">
+                <a class="nav-link {{Request::is('dashboard') ? 'active' : ''}}" href="{{url('dashboard')}}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                 </div>
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{url('categories')}}">
+                <a class="nav-link {{Request::is('categories') ? 'active' : ''}}" href="{{url('categories')}}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                 </div>
@@ -25,11 +25,35 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{url('add-category')}}">
+                <a class="nav-link {{Request::is('add-category') ? 'active' : ''}}" href="{{url('add-category')}}">
                 <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                 </div>
                 <span class="nav-link-text ms-1">Agregar categoria</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{Request::is('products') ? 'active' : ''}}" href="{{url('products')}}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Productos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{Request::is('add-product') ? 'active' : ''}}" href="{{url('add-product')}}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Agregar Productos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('dashboard')}}">
+                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                </div>
+                <span class="nav-link-text ms-1">Table List</span>
                 </a>
             </li>
         </ul>
