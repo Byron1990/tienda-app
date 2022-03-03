@@ -30,11 +30,12 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('categories', 'Admin\CategoryController@index');
     Route::get('add-category', 'Admin\CategoryController@add');
     Route::post('insert-category', 'Admin\CategoryController@insert');
-    /* Editar un producto */
+    /* Editar una categoria */
     Route::get('edit-product/{id}', [CategoryController::class, 'edit']);
     Route::put('update-product/{id}', [CategoryController::class, 'update']);
     Route::get('delete-product/{id}', [CategoryController::class, 'destroy']);
-
-    Route::get('products',[ProductController::class, 'index']);
-    Route::get('add-product',[ProductController::class, 'add']);
+    /* Editar un producto */
+    Route::get('products', [ProductController::class, 'index']);
+    Route::get('add-product', [ProductController::class, 'add']);
+    Route::post('insert-product', [ProductController::class, 'insert']);
 });

@@ -17,17 +17,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $item)  
+                    @foreach ($products as $item)  
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->description }}</td>
                         <td>
-                            <img src="{{asset('assets/uploads/category/'.$item->image)}}" class="cate-image" alt="Imagen aquí">
+                            <img src="{{asset('assets/uploads/products/'.$item->image)}}" class="cate-image" alt="Imagen aquí">
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{url('edit-product/'.$item->id)}}">Editar</a>
-                            <a class="btn btn-danger" href="{{url('delete-product/'.$item->id)}}">Borrar</a>
+                            <a class="btn btn-primary" href="#">Editar</a>
+                            <a class="btn btn-danger" href="#">Borrar</a>
                         </td>
                     </tr>
                     @endforeach                
