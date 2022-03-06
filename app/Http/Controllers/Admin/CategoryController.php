@@ -81,6 +81,6 @@ class CategoryController extends Controller
             File::delete($path);
         }
         $category->delete();
-        return redirect('categories')->with('status', "Producto eliminado correctamente");
+        return redirect('categories')->with('status', "Categoria eliminado correctamente");
     }
 }

@@ -10,8 +10,9 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Category</th>
                         <th>Nombre</th>
-                        <th>Descripción</th>
+                        <th>Precio Venta</th>
                         <th>Imagen</th>
                         <th>Acción</th>
                     </tr>
@@ -20,14 +21,15 @@
                     @foreach ($products as $item)  
                     <tr>
                         <td>{{ $item->id }}</td>
+                        <td>{{ $item->category->name }}</td>
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->description }}</td>
+                        <td>{{ $item->selling_price }}</td>
                         <td>
                             <img src="{{asset('assets/uploads/products/'.$item->image)}}" class="cate-image" alt="Imagen aquí">
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="#">Editar</a>
-                            <a class="btn btn-danger" href="#">Borrar</a>
+                            <a class="btn btn-primary btn-sm" href="{{url('edit-product/'.$item->id)}}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="{{url('delete-product/'.$item->id)}}">Borrar</a>
                         </td>
                     </tr>
                     @endforeach                

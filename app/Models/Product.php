@@ -26,4 +26,10 @@ class Product extends Model
         'meta_keywords',
         'meta_description'
     ];
+
+    /* Extraer la categoria correcpondiente a un determinado producto */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'cate_id', 'id');
+    }
 }
