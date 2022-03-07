@@ -21,6 +21,9 @@
     <!-- Styles -->
     <link href="{{asset('frontend/css/argon-dashboard.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/custom.css')}}" rel="stylesheet">
+    {{-- Carousel --}}
+    <link href="{{asset('frontend/css/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{asset('frontend/css/owl.theme.default.min.css')}}" rel="stylesheet">
 
 </head>
 <body>
@@ -30,6 +33,8 @@
     </div>
     <!-- Scripts -->
     <script src="{{asset('frontend/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('frontend/js/owl.carousel.js')}}"></script>
     @if(session('status'))
         <script>
             swal('{{session('status')}}')

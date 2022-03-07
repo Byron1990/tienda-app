@@ -12,9 +12,10 @@ El usuario administrador es determinado por una variable en la base de datos, la
 
 <h3>Administrador</h3>
 
-Permite el ingreso de categorias de productos 
+- Registro, edición y eliminación de diversas categorias de productos
 
-Permite el ingreso de productos para cada categoría
+- Registro, edición y eliminación de productos por categoría
+
 
 ### Usuarios
 

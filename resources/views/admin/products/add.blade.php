@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Trending</label>
-                        <input type="checkbox" name="status">
+                        <input type="checkbox" name="trending">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Meta Title</label>

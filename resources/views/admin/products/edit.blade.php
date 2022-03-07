@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Trending</label>
-                        <input type="checkbox" {{$product->trending == '1' ? 'checked' :'' }} name="status">
+                        <input type="checkbox" {{$product->trending == '1' ? 'checked' :'' }} name="trending">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">Meta Title</label>
