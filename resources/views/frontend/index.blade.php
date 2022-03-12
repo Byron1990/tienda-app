@@ -11,16 +11,37 @@
             <h2>Featured Products</h2>
             <div class="owl-carousel featured-carousel owl-theme">
                 @foreach($feature_products as $item)
-                <div class="item">
-                    <div class="card">
-                        <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="Demo Product">
-                        <div class="card-body">
-                            <h5>{{$item->name}}</h5>
-                            <span class="float-start">{{$item->selling_price}} $</span>
-                            <span class="float-end"><s>{{$item->original_price}} $</s></span>
+                    <div class="item">
+                        <div class="card">
+                            <img src="{{asset('assets/uploads/products/'.$item->image)}}" alt="Demo Product">
+                            <div class="card-body">
+                                <h5>{{$item->name}}</h5>
+                                <p>
+                                    {{$item->description}}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="row">
+            <h2>Trending Category</h2>
+            <div class="owl-carousel featured-carousel owl-theme">
+                @foreach($trending_category as $item)
+                    <div class="item">
+                        <div class="card">
+                            <img src="{{asset('assets/uploads/category/'.$item->image)}}" alt="Demo Category">
+                            <div class="card-body">
+                                <h5>{{$item->name}}</h5>
+                                <p>
+                                    {{$item->description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </div>
         </div>
